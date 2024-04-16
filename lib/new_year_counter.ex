@@ -7,11 +7,14 @@ defmodule NewYearCounter do
   end
 
   def main do
-    time = DateTime.new!(Date.new!(2025, 1, 1), Time.new!(0,0,0,0), "Etc/UTC")
-    counter = DateTime.diff(time, DateTime.utc_now())
+    current_time = DateTime.utc_now()
+    next_year = current_time.year + 1
+    target_date = DateTime.new!(Date.new!(next_year, 1, 1), Time.new!(0, 0, 0, 0), "Etc/UTC")
+
+    counter = DateTime.diff(target_date, current_time)
 
     days = div(counter, 86400)
-    hours = div(rem(counter, 86400), 60 * 60)
+    hours = div(rem(counter, 86400), 3600)
     minutes = div(rem(counter, 3600), 60)
     seconds = rem(counter, 60)
 
