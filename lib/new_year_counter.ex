@@ -20,5 +20,6 @@ defmodule NewYearCounter do
 
     IO.puts("Time until new year:")
     IO.puts("#{days} days, #{hours} hours, #{minutes} minutes, #{seconds} seconds")
+
   end
 end
